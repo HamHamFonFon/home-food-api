@@ -5,6 +5,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Class MainCategory
@@ -24,6 +25,7 @@ class MainCategory
     /**
      * @var string
      * @ORM\Column(name="name", type="string", nullable=false)
+     * @Groups({"product_get"})
      */
     private $name;
 

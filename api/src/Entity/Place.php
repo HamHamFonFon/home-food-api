@@ -5,6 +5,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Class Place
@@ -24,17 +25,19 @@ class Place
     /**
      * @var string
      * @ORM\Column(name="place", type="string", length=255, nullable=false)
+     * @Groups({"product_get"})
      */
     private $name;
 
     /**
      * @var string
      * @ORM\Column(name="room", type="string", length=255, nullable=false)
+     * @Groups({"product_get"})
      */
     private $room;
 
     /**
-     * @var Product
+     * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="Product", mappedBy="place")
      */
     private $product;

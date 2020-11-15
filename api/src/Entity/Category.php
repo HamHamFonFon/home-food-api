@@ -5,12 +5,14 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Class Category
  * @package App\Entity
  *
  * @ORM\Table(name="categories)"
+ * @ApiResource
  */
 class Category
 {
@@ -25,6 +27,7 @@ class Category
     /**
      * @var string
      * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     * @Groups({"product_get"})
      */
     private $name;
 
@@ -32,6 +35,7 @@ class Category
      * @var
      * @ORM\ManyToOne(targetEntity="MainCategory", inversedBy="category")
      * @ORM\JoinColumn(name="main_category_id", referencedColumnName="id")
+     * @Groups({"product_get"})
      */
     private $mainCategory;
 
