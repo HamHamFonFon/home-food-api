@@ -5,16 +5,28 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Product
  * @ORM\Table(
  *      name="products",
- *      indexes={}
+ *      indexes={@ORM\Index(name="product_idx", columns={"id", "name"})}
  * )
+ * @ORM\Entity 
  * @package App\Entity
  *
- * @ApiResource
+ * @ApiResource(
+ *      normalizationContext={"groups"={"product_get"}},
+ *      denormalizationContext={groups={"product_put", "product_post"}}
+ *      itemOperations={
+ *          "get",
+ *          "put",
+ *          "post",
+ *          "delete"
+ *      },
+ *      collectionOperations={"get"}
+ * )
  */
 class Product
 {
@@ -22,6 +34,7 @@ class Product
     /**
      * @var integer
      * @ORM\Id
+     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
