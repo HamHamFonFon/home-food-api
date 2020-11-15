@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class Place
- * @ORM\Table(name="place")
+ * @ORM\Table(name="places")
  * @package App\Entity
  */
 class Place
@@ -115,7 +115,7 @@ class Place
 
     public function addProduct(Product $product)
     {
-        
+
     }
 
     /**

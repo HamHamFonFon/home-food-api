@@ -41,12 +41,29 @@ class Product
     /**
      * @var Place
      * @ORM\ManyToOne(targetEntity="Place", inversedBy="product", cascade={"persist"})
-     * @ORM\JoinColumn(name="place_id", referencedColumnName="")
+     * @ORM\JoinColumn(name="place_id", referencedColumnName="id")
      */
     private $place;
 
-
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="product", cascade={"persist"})
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
     private $category;
+
+    /**
+     * @var \DateTimeInterface
+     * @ORM\Column(name="dlc", type="datetime", nullable=true)
+     */
+    private $dlc;
+
+
+    /**
+     * @var \DateTimeInterface
+     * @ORM\Column(name="dluo", type="datetime", nullable=true)
+     */
+    private $dluo;
 
     /**
      * @var \DateTimeInterface
