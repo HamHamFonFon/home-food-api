@@ -20,15 +20,14 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ApiResource(
  *      attributes={
  *          "normalizationContext"={"groups"={"product_get"}},
- *          "denormalizationContext"={"groups"={"product_put", "product_post"}}
+ *          "denormalizationContext"={"groups"={"product_write"}}
  *      },
  *      itemOperations={
  *          "get",
  *          "put",
- *          "post",
  *          "delete"
  *      },
- *      collectionOperations={"get"}
+ *      collectionOperations={"get", "post"}
  * )
  */
 class Product

@@ -3,6 +3,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -11,8 +12,20 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * Class Category
  * @package App\Entity
  *
- * @ORM\Table(name="categories)"
- * @ApiResource()
+ * @ORM\Table(name="categories")
+ * @ORM\Entity
+ * @ApiResource(
+ *     attributes={
+ *           "normalizationContext"={"groups"={"category_get"}},
+ *          "denormalizationContext"={"groups"={"category_write"}}
+ *      },
+ *      itemOperations={
+ *          "get",
+ *          "put",
+ *          "delete"
+ *      },
+ *      collectionOperations={"get", "post"}
+ * )
  */
 class Category
 {
