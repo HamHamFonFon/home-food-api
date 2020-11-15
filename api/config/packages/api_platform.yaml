@@ -1,5 +1,5 @@
 api_platform:
-    title: Hello API Platform
+    title: HomeFood API Platform
     version: 1.0.0
     formats:
         json: [ 'application/json' ]
@@ -18,5 +18,5 @@ api_platform:
     enable_swagger: true
     enable_swagger_ui: true
     # Mercure integration, remove if unwanted
-    mercure:
-        hub_url: '%env(MERCURE_SUBSCRIBE_URL)%'
+    #mercure:
+        #hub_url: '%env(MERCURE_SUBSCRIBE_URL)%'

@@ -19,9 +19,9 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *
  * @ApiResource(
  *      attributes={
- *          normalizationContext={"groups"={"product_get"}},
- *          denormalizationContext={groups={"product_put", "product_post"}}
- *     },
+ *          "normalizationContext"={"groups"={"product_get"}},
+ *          "denormalizationContext"={"groups"={"product_put", "product_post"}}
+ *      },
  *      itemOperations={
  *          "get",
  *          "put",

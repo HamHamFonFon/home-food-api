@@ -12,7 +12,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @package App\Entity
  *
  * @ORM\Table(name="categories)"
- * @ApiResource
+ * @ApiResource()
  */
 class Category
 {
@@ -32,7 +32,7 @@ class Category
     private $name;
 
     /**
-     * @var
+     * @var MainCategory
      * @ORM\ManyToOne(targetEntity="MainCategory", inversedBy="category")
      * @ORM\JoinColumn(name="main_category_id", referencedColumnName="id")
      * @Groups({"product_get"})
@@ -40,11 +40,14 @@ class Category
     private $mainCategory;
 
     /**
-     * @var Product
+     * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
      */
     private $product;
 
+    /**
+     * Category constructor.
+     */
     public function __construct()
     {
         $this->product = new ArrayCollection();
